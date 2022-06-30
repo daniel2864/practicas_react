@@ -1,4 +1,5 @@
 import { lazy, LazyExoticComponent } from "react";
+import { noLazy } from "../pages/noLazy";
 /*import {
     LazyPage1,
     LazyPage2,
@@ -14,29 +15,22 @@ interface Router {
     name: string
 }
 
-const Lazy1 = lazy(() => import('../pages/lazyPage1'));
-const Lazy2 = lazy(() => import('../pages/lazyPage2'));
-const Lazy3 = lazy(() => import('../pages/lazyPage3'));
+const LazyLayout = lazy(() => import('../layout/LazyLayout'));
+//const Lazy2 = lazy(() => import('../pages/lazyPage2'));
 
 export const routes: Router[] = [
     {
-        path: '/lazy1',
-        to: 'lazy1',
-        Component: Lazy1,
-        name: 'Lazy 1'
+        path: '/lazy-layout/*',
+        to: '/lazy-layout/',
+        Component: LazyLayout,
+        name: 'Lazy Layout'
 
     },
     {
-        path: '/lazy2',
-        to: 'lazy2',
-        Component: Lazy2,
-        name: 'Lazy 2'
-
-    }, {
-        path: '/lazy3',
-        to: 'lazy3',
-        Component: Lazy3,
-        name: 'Lazy 3'
+        path: '/no-lazy',
+        to: 'no-lazy',
+        Component: noLazy,
+        name: 'No Lazy'
 
     }
 ]
