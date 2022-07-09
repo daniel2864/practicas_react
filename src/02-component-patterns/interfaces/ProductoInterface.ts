@@ -1,24 +1,46 @@
-import { ReactElement } from 'react';
 
-export interface ProductCardprops {
-    children?: ReactElement | ReactElement[]
-    product: product;
-}
 export interface product {
     id: string;
-    titulo: string;
     img?: string;
+    titulo: string;
 }
+
+export interface ProductTitleProps {
+    className?: string;
+    titulo?: string;
+    activeClass?: string;
+    style?: React.CSSProperties;
+}
+
+export interface ProductImageProps{
+    imagen?: string;
+    className?: string;
+    style?: React.CSSProperties;
+}
+export interface ProductButtonProps{ 
+    className?: string;
+    style?: React.CSSProperties;
+}
+export interface ProductCardprops {
+    children?: React.ReactElement |React.ReactElement[];
+    className?: string;
+    product: product;
+
+    style?: React.CSSProperties;
+    
+}
+
 export interface ProductContextProps {
-    counter: number,
-    incrementarButton: (value: number) => void,
-    product: product
+    counter: number;
+    incrementarButton: (value: number) => void;
+    product: product;
 
 }
 
 export interface ProductCadMainProps{
     ({ children, product }: ProductCardprops): JSX.Element,
-    Title: ({ titulo }: {titulo?: string}) => JSX.Element,
-    Imagen: ({ imagen }: {imagen?: string}) => JSX.Element,
-    Buttons: () => JSX.Element
+    Buttons: (props: ProductButtonProps) => JSX.Element
+    Imagen: (props: ProductImageProps) => JSX.Element,
+    Title: (props: ProductTitleProps) => JSX.Element,
 }
+
